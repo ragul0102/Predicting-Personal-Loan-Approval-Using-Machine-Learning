@@ -1,0 +1,16 @@
+def submit():
+    input_feature=[int(x) for x in request.form.values() ]
+    input_feature-[np.array(imput_feature)] 
+    print(input_feature)
+    names=['Gender','Married','Dependents','Education','ApplicantIncome','CoapplicantIncome','LoadAmount','Loan_Amount_Term','Credit_History','Property_Area']
+    data=pandas.DataFrame(input_frature,columns=names)
+    print(data)
+    prediction=model.predict(data)
+    print(prediction)
+    prediction=int(prediction)
+    print(type(prediction))
+    
+    if(prediction==0):
+        return render_template("output.html",result="Loan will not be Approved")
+    else:
+        return render_template("output.html",result="Loan Will be approved")
